@@ -1,0 +1,37 @@
+{% extends "web/base.html" %}
+{% block title %}Register as a worker - Worka{% endblock %}
+{% block content %}
+<div class="card">
+  <h2 style="margin-top:0">Register as a worker</h2>
+  <p class="muted">Tell clients who you are. You can upload your ID for verification right after this.</p>
+  <p class="muted">Already registered? <a href="{% url 'web:portal_login' %}"><u>Log in</u></a></p>
+</div>
+<form method="post" class="card">
+  {% csrf_token %}
+  <label>Full name</label>
+  <input name="full_name" required value="{{ form.full_name }}">
+  <label>Phone number</label>
+  <input name="phone_number" type="tel" required placeholder="0244123456" value="{{ form.phone_number }}">
+  <label>Your trade</label>
+  <select name="category" required>
+    <option value="">Choose one</option>
+    {% for c in categories %}<option value="{{ c.id }}">{{ c.icon }} {{ c.name }}</option>{% endfor %}
+  </select>
+  <label>Region</label>
+  <select name="region" required>
+    <option value="">Choose one</option>
+    {% for value, label in regions %}<option value="{{ value }}">{{ label }}</option>{% endfor %}
+  </select>
+  <label>Town / area</label>
+  <input name="town" required value="{{ form.town }}">
+  <label>Mobile Money number (for payouts)</label>
+  <input name="momo_number" value="{{ form.momo_number }}">
+  <label>Mobile Money network</label>
+  <select name="momo_network">
+    <option value="mtn">MTN</option>
+    <option value="vodafone">Telecel/Vodafone</option>
+    <option value="airteltigo">AirtelTigo</option>
+  </select>
+  <button class="btn" type="submit">Register & continue</button>
+</form>
+{% endblock %}

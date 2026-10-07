@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Worka - trusted tradespeople in Ghana{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'web/style.css' %}">
+</head>
+<body>
+  <div class="header">
+    <a href="{% url 'web:home' %}"><h1>Worka</h1></a>
+    <p>Find trusted, verified tradespeople near you. No sign up needed.</p>
+    <p style="margin-top:8px"><a href="{% url 'web:portal_dashboard' %}" style="color:#fff;text-decoration:underline;font-size:13px">Are you a worker? Go to your dashboard &rarr;</a></p>
+  </div>
+  <div class="container">
+    {% for m in messages %}<div class="msg {{ m.tags }}">{{ m }}</div>{% endfor %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
