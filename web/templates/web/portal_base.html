@@ -1,8 +1,0 @@
-{% extends "web/base.html" %}
-{% block content %}
-<div class="navbar">
-  <a href="{% url 'web:portal_dashboard' %}">My dashboard</a>
-  <form method="post" action="{% url 'web:portal_logout' %}" style="margin:0">{% csrf_token %}<button type="submit" class="btn-secondary" style="border:none;background:none;color:#0a6e4d;font-weight:600;cursor:pointer;padding:0">Log out</button></form>
-</div>
-{% block portal_content %}{% endblock %}
-{% endblock %}
