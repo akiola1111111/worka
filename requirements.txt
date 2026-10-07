@@ -1,0 +1,13 @@
+Django==5.2.17
+djangorestframework==3.15.1
+django-cors-headers==4.3.1
+djangorestframework-simplejwt==5.3.1
+python-decouple==3.8
+Pillow
+requests==2.32.3
+whitenoise==6.6.0
+gunicorn==22.0.0
+dj-database-url==2.2.0
+# psycopg2-binary==2.9.9  # only needed when you deploy to Postgres — skip for local SQLite dev
+# For production (Postgres) installs on Windows, prefer the precompiled wheel:
+#   pip install psycopg2-binary --only-binary :all:
